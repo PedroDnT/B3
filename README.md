@@ -1,22 +1,22 @@
 # B3 File Parser
 
-A function that parse and format Bovespa/B3's historical annual data downaloaded from their website. 
-Further versions should have additional methods to hadle data.
-
-The website is currently the only free source of financial data due to depreciation of yahoo finance and google finance API
+A function that reads and formats Bovespa/B3's historical data downloaded from their website. The website is currently the only free source of financial data due to depreciation of yahoo finance and google finance API
 to extract informations. 
+
+Files Download: [BMFBOV - COTACOES HISTORICAS](http://www.bmfbovespa.com.br/pt_br/servicos/market-data/historico/mercado-a-vista/cotacoes-historicas/)
 
 ## Getting Started
 pass
 TBD
 
-### Prerequisites
-pass
-TBD
-
-To use simply:
+### Usage
+To import:
 ```
 from B3 import *
+```
+To parse data:
+```
+x = parse_dataset(*filepath*)
 ```
 
 ## Authors
