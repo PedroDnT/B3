@@ -5,10 +5,6 @@ to extract informations.
 
 Files Download: [BMFBOV - COTACOES HISTORICAS](http://www.bmfbovespa.com.br/pt_br/servicos/market-data/historico/mercado-a-vista/cotacoes-historicas/)
 
-## Getting Started
-pass
-TBD
-
 ### Usage
 To import:
 ```
@@ -16,7 +12,10 @@ from B3 import *
 ```
 To parse data:
 ```
-x = parse_dataset(*filepath*)
+x = parse_dataset( filepath )  # Loads dataset into pandas dataframe
+translate_bdi(x)  # Translates BDI Codes and returns pandas df mofied
+market_type(x)  # Translates market_types Codes and returns pandas df mofied
+price_mod(x)  # Returns price fields formated as currency
 ```
 
 ## Authors
@@ -26,4 +25,4 @@ x = parse_dataset(*filepath*)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the Apache License 2.0 - see the [LICENSE.md](LICENSE.md) file for details
