@@ -13,13 +13,15 @@ TBD
 ### Prerequisites
 pass
 TBD
+
+To use simply:
 ```
-Give examples
+from B3 import *
 ```
 
 ## Authors
 
-* **Pedro Todescan** - *Initial work* - [PurpleBooth](https://github.com/PedroDnT)
+* **Pedro Todescan** - *GitHub Profile* - [PedroDnT](https://github.com/PedroDnT)
 
 
 ## License
