@@ -99,6 +99,11 @@ def market_type(df):
 
 
 def price_mod(df):
+    """
+
+    :type df: object
+
+    """
     df.OpenPrice = pd.to_numeric(df.OpenPrice) / 100
     df.HighPrice = pd.to_numeric(df.HighPrice) / 100
     df.LowPrice = pd.to_numeric(df.LowPrice) / 100
@@ -106,3 +111,4 @@ def price_mod(df):
     df.ClosePrice = pd.to_numeric(df.ClosePrice) / 100
     df.BestBid = pd.to_numeric(df.BestBid) / 100
     df.BestAsk = pd.to_numeric(df.BestAsk) / 100
+    return df

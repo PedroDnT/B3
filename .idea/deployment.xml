@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="https://github.com/PedroDnT/B3.git" uploadOnCheckin="f9d24f6f-d90a-4fe7-97df-7aa626550fe4">
+    <serverData>
+      <paths name="https://github.com/PedroDnT/B3.git">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="https://github.com/PedroDnT/B3.git" />
+  </component>
+</project>
