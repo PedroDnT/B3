@@ -35,6 +35,11 @@ def parse_dataset(filepath):
     df = df.drop(['ExecutionPricePoints'], axis=1)
     df = df.drop(['DistributionCode'], axis=1)
 
+    df = translate_bdi(df)
+    df = market_type(df)
+    df = price_mod(df)
+    df = set_numerics(df)
+
     return df
 
 def translate_bdi(df):
