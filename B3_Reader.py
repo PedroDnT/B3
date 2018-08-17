@@ -20,14 +20,22 @@ def parse_dataset(filepath):
 
     df.columns = [
         'RecordType', 'Date', 'BDICode', 'Ticker', 'MarketType', 'FirmName',
-        'Especs', 'DueDate(futures)', 'Currency', 'OpenPrice', 'HighPrice',
+        'Especs', 'DaysDue(fut)', 'Currency', 'OpenPrice', 'HighPrice',
         'LowPrice', 'AvgPrice', 'ClosePrice', 'BestBid', 'BestAsk', '#Trades',
-        '#BondTrades', 'Volume', 'ExecutionPrice(Futures)', 'CorrectionIndex',
-        'ExpiringDate', 'TickerRatio', 'ExecutionPricePoints',
+        '#BondTrades', 'Volume', 'ExecutionPrice(Futures)', 'Adjust',
+        'ExpiringDate', 'LoteSize', 'ExecutionPricePoints',
         'IsinCode', 'DistributionCode']
     df.Date = pd.to_datetime(df.Date)
-    return df
+    df['ExpiringDate'] = pd.to_datetime(df['ExpiringDate'], errors='coerce')
+    df['ExecutionPrice(Futures)'] = pd.to_numeric(df['ExecutionPrice(Futures)'], errors='coerce')/ 100
 
+
+    df.LoteSize = pd.to_numeric(df.LoteSize)
+    df = df.drop(['RecordType'], axis=1)
+    df = df.drop(['ExecutionPricePoints'], axis=1)
+    df = df.drop(['DistributionCode'], axis=1)
+
+    return df
 
 def translate_bdi(df):
     bdi = {
@@ -77,8 +85,8 @@ def translate_bdi(df):
     }
 
     df['BDICode'].replace(bdi, inplace=True)
-    return df
 
+    return df
 
 def market_type(df):
     mkt = {
@@ -97,7 +105,6 @@ def market_type(df):
     df['MarketType'].replace(mkt, inplace=True)
     return df
 
-
 def price_mod(df):
     """
 
@@ -111,4 +118,14 @@ def price_mod(df):
     df.ClosePrice = pd.to_numeric(df.ClosePrice) / 100
     df.BestBid = pd.to_numeric(df.BestBid) / 100
     df.BestAsk = pd.to_numeric(df.BestAsk) / 100
+
     return df
+
+def set_numerics(df):
+
+    df['DaysDue(fut)'] = pd.to_numeric(df['DaysDue(fut)'], errors='coerce')
+    df['#Trades'] = pd.to_numeric(df['#Trades'], errors='coerce')
+    df['#BondTrades'] = pd.to_numeric(df['#BondTrades'], errors='coerce')
+    df['Volume'] = pd.to_numeric(df['Volume']) / 100
+    return df
+
