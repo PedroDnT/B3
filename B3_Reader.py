@@ -2,12 +2,6 @@ import pandas as pd
 
 
 def parse_dataset(filepath):
-    """
-
-    :return:
-    :param filepath: to original TXT file
-    :return: pandas dataframe parsed and formated
-    """
 
     global df
     df = pd.DataFrame()  # Empty dataframe to fill; with file data.
@@ -31,7 +25,6 @@ def parse_dataset(filepath):
 
 
     df.LoteSize = pd.to_numeric(df.LoteSize)
-    df = df.drop(['RecordType'], axis=1)
     df = df.drop(['ExecutionPricePoints'], axis=1)
     df = df.drop(['DistributionCode'], axis=1)
 
